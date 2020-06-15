@@ -19,12 +19,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        mBinding.mMemberViewModel = SampleViewModelFactory().create(ViewModelRandomMember::class.java).apply{
-            member.observe(this@MainActivity, Observer { data ->
-                tvMember.text = data.toString()
-                Log.v("TEST", data.toString())
-            })
-        }
+        mBinding.lifecycleOwner = this
+        mBinding.mMemberViewModel = SampleViewModelFactory().create(ViewModelRandomMember::class.java)
     }
 
     inner class SampleViewModelFactory : ViewModelProvider.NewInstanceFactory() {
