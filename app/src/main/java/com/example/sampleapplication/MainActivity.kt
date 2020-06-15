@@ -19,18 +19,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        mBinding.lifecycleOwner = this
-        mBinding.mMemberViewModel = SampleViewModelFactory().create(ViewModelRandomMember::class.java)
-    }
-
-    inner class SampleViewModelFactory : ViewModelProvider.NewInstanceFactory() {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return ViewModelRandomMember(
-                usecase = UseCaseRandomMember(),
-                repo = RepoRandomMember(
-                    db = KidsNoteMemberDbImpl()
-                )
-            ) as T
-        }
     }
 }
