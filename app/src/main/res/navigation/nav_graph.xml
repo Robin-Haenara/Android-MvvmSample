@@ -2,6 +2,32 @@
 <navigation
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/random_fragment"
+    >
+
+    <fragment
+        android:id="@+id/random_fragment"
+        android:name="com.example.sampleapplication.random.RandomFragment"
+        android:label="fragment_random"
+        tools:layout="@layout/fragment_random">
+        <!--        <action-->
+        <!--            android:id="@+id/action_random_to_search"-->
+        <!--            app:destination="@id/search_fragment"/>-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_fragment"
+        android:name="com.example.sampleapplication.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <action
+        android:id="@+id/action_global_random_fragment"
+        app:destination="@id/random_fragment" />
+    <action
+        android:id="@+id/action_global_search_fragment"
+        app:destination="@id/search_fragment" />
+
 
 </navigation>
