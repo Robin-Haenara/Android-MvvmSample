@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sampleapplication.KidsnoteMember
+import com.classnote.domain.model.KidsnoteMember
 import com.example.sampleapplication.R
 import com.example.sampleapplication.databinding.ItemSearchBinding
 

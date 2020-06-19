@@ -3,7 +3,7 @@
     <data>
         <variable
             name="member"
-            type="com.example.sampleapplication.KidsnoteMember" />
+            type="com.classnote.domain.model.KidsnoteMember" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

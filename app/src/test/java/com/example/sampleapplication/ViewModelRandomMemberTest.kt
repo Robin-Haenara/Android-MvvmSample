@@ -1,5 +1,6 @@
 package com.example.sampleapplication
 
+import com.classnote.domain.model.KidsnoteMember
 import io.mockk.MockKAnnotations
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.sampleapplication
+package com.classnote.domain
 
 interface UseCase<in I : UseCaseInput, out O : UseCaseOutput> {
     fun execute(input : I) : O

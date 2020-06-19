@@ -2,9 +2,9 @@ package com.example.sampleapplication
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.classnote.domain.model.KidsnoteMember
 import com.example.sampleapplication.random.RepoRandomMember
 import com.example.sampleapplication.random.UseCaseRandomMember
-import com.example.sampleapplication.random.UseCaseRandomMemberRepo
 
 class ViewModelRandomMember(
     private val usecase : UseCaseRandomMember,
