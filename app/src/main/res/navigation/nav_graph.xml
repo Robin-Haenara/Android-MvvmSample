@@ -22,12 +22,19 @@
         android:name="com.example.sampleapplication.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/add_fragment"
+        android:name="com.example.sampleapplication.add.AddMemberFragment"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" />
     <action
         android:id="@+id/action_global_random_fragment"
         app:destination="@id/random_fragment" />
     <action
         android:id="@+id/action_global_search_fragment"
         app:destination="@id/search_fragment" />
-
+    <action
+        android:id="@+id/action_global_add_fragment"
+        app:destination="@id/add_fragment" />
 
 </navigation>

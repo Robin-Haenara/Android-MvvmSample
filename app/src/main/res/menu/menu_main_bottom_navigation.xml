@@ -9,7 +9,7 @@
         android:icon="@drawable/ic_search"
             android:title="Search" />
     <item
-        android:id="@+id/menu_add"
+        android:id="@+id/add_fragment"
         android:icon="@drawable/ic_add"
             android:title="Add" />
 </menu>
