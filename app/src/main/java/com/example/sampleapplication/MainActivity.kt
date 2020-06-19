@@ -14,9 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val host : NavHostFragment = supportFragmentManager
+        val host: NavHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment? ?: return
         mBinding.bottomNavigation.setupWithNavController(host.navController)
-
     }
 }
