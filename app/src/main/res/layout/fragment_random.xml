@@ -3,7 +3,7 @@
     <data>
         <variable
             name="mMemberViewModel"
-            type="com.example.sampleapplication.ViewModelRandomMember" />
+            type="com.example.sampleapplication.random.RandomMemberViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

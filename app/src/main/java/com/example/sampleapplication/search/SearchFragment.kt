@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.classnote.domain.search.SearchUseCase
 import com.example.sampleapplication.R
 import com.example.sampleapplication.databinding.FragmentSearchBinding
-import com.example.sampleapplication.random.KidsNoteMemberDbImpl
+import com.example.sampleapplication.db.KidsnoteMemberDbImpl
 
 class SearchFragment : Fragment() {
     private lateinit var mBinding: FragmentSearchBinding
@@ -29,7 +29,7 @@ class SearchFragment : Fragment() {
 
     inner class SearchViewModelFactory : ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return SearchViewModel(SearchRepoImpl(KidsNoteMemberDbImpl()), SearchUseCase()) as T
+            return SearchViewModel(SearchRepoImpl(KidsnoteMemberDbImpl()), SearchUseCase()) as T
         }
     }
 }

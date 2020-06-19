@@ -1,9 +1,10 @@
-package com.example.sampleapplication.random
+package com.example.sampleapplication.db
 
 import com.classnote.domain.model.KidsnoteMember
+import com.example.sampleapplication.random.KidsnoteMemberDB
 
 
-class KidsNoteMemberDbImpl : KidsnoteMemberDB {
+class KidsnoteMemberDbImpl : KidsnoteMemberDB {
     override val list = listOf(
         KidsnoteMember("Smith", "CEO"),
         KidsnoteMember("Snoya", "Service Development Cell"),

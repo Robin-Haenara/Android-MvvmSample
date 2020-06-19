@@ -8,9 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.classnote.domain.random.RandomMemberUseCase
 import com.example.sampleapplication.R
-import com.example.sampleapplication.ViewModelRandomMember
 import com.example.sampleapplication.databinding.FragmentRandomBinding
+import com.example.sampleapplication.db.KidsnoteMemberDbImpl
 
 class RandomFragment : Fragment() {
     lateinit var mBinding: FragmentRandomBinding
@@ -22,7 +23,7 @@ class RandomFragment : Fragment() {
     ): View? {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_random, container, false)
         mBinding.lifecycleOwner = this
-        mBinding.mMemberViewModel = SampleViewModelFactory().create(ViewModelRandomMember::class.java)
+        mBinding.mMemberViewModel = SampleViewModelFactory().create(RandomMemberViewModel::class.java)
         return mBinding.root
     }
 
@@ -32,10 +33,10 @@ class RandomFragment : Fragment() {
 
     inner class SampleViewModelFactory : ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return ViewModelRandomMember(
-                usecase = UseCaseRandomMember(),
-                repo = RepoRandomMember(
-                    db = KidsNoteMemberDbImpl()
+            return RandomMemberViewModel(
+                usecase = RandomMemberUseCase(),
+                repo = RandomMemberRepoImpl(
+                    db = KidsnoteMemberDbImpl()
                 )
             ) as T
         }
