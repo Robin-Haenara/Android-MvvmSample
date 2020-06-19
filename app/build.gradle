@@ -63,6 +63,6 @@ dependencies {
   // Dynamic Feature Module Support
   implementation "androidx.navigation:navigation-dynamic-features-fragment:2.3.0-rc01"
 
-
-
+  // Recycler View
+  implementation "androidx.recyclerview:recyclerview:1.1.0"
 }

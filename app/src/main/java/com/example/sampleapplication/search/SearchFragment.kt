@@ -6,13 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.sampleapplication.R
 import com.example.sampleapplication.databinding.FragmentSearchBinding
+import com.example.sampleapplication.random.KidsNoteMemberDbImpl
+import kotlinx.android.synthetic.main.fragment_search.*
 
 class SearchFragment : Fragment() {
-    lateinit var mBinding: FragmentSearchBinding
+    private lateinit var mBinding: FragmentSearchBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,13 +29,9 @@ class SearchFragment : Fragment() {
         return mBinding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     inner class SearchViewModelFactory : ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return SearchViewModel() as T
+            return SearchViewModel(KidsNoteMemberDbImpl()) as T
         }
     }
 }
