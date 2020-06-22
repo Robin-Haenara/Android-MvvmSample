@@ -2,11 +2,14 @@ package com.example.sampleapplication.search
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.classnote.domain.search.SearchRepo
-import com.classnote.domain.search.SearchUseCase
-import com.classnote.domain.search.SearchUseCaseInput
+import androidx.navigation.NavDirections
+import com.classnote.domain.search.*
+import com.example.sampleapplication.nav.NavigationMapper
 
-class SearchViewModel(val repo : SearchRepo, val usecase : SearchUseCase) : ViewModel(){
+class SearchViewModel(
+    private val repo : SearchRepo,
+    private val usecase : SearchUseCase,
+    private val usecaseNavi : SearchToAddUseCase) : ViewModel(){
 
     val keywordData = object  : MutableLiveData<String>("") {
         override fun setValue(value: String?) {
@@ -39,9 +42,15 @@ class SearchViewModel(val repo : SearchRepo, val usecase : SearchUseCase) : View
     var isEmtpty = MutableLiveData(repo.list.isEmpty())
 
     val event = MutableLiveData<String>()
+    val eventNavi = MutableLiveData<NavDirections>()
 
     fun moveToAdd() {
-        event.value = keywordData.value?.trim()
+        eventNavi.value =
+            NavigationMapper.map(
+                usecaseNavi.execute(object : SearchToAddUseCaseInput {
+                    override val keyword = keywordData.value
+                }).destination
+            )
     }
 
 }
