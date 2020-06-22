@@ -4,6 +4,7 @@ import com.classnote.domain.UseCase
 import com.classnote.domain.UseCaseInput
 import com.classnote.domain.UseCaseOutput
 import com.classnote.domain.model.KidsnoteMember
+import io.reactivex.rxjava3.core.Single
 
 class RandomMemberUseCase : UseCase<RandomMemberRepo, UseCaseRandomMemberResult> {
 
@@ -24,8 +25,8 @@ class RandomMemberUseCase : UseCase<RandomMemberRepo, UseCaseRandomMemberResult>
 
 interface RandomMemberRepo : UseCaseInput {
     val totalMember : Int
-    fun getMember(index : Int) : KidsnoteMember
+    fun getMember(index : Int) : Single<KidsnoteMember>
 }
 interface UseCaseRandomMemberResult : UseCaseOutput {
-    val member : KidsnoteMember
+    val member : Single<KidsnoteMember>
 }

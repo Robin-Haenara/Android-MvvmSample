@@ -4,6 +4,7 @@ import com.classnote.domain.model.KidsnoteMember
 import com.classnote.domain.UseCase
 import com.classnote.domain.UseCaseInput
 import com.classnote.domain.UseCaseOutput
+import io.reactivex.rxjava3.core.Observable
 
 class SearchUseCase : UseCase<SearchUseCaseInput, SearchUseCaseOutput> {
     private fun search(input : SearchUseCaseInput) : SearchUseCaseOutput {
@@ -29,9 +30,9 @@ interface SearchUseCaseInput : UseCaseInput {
 }
 
 interface SearchUseCaseOutput : UseCaseOutput {
-    val filteredList : List<KidsnoteMember>
+    val filteredList : Observable<KidsnoteMember>
 }
 
 interface SearchRepo {
-    val list : List<KidsnoteMember>
+    val list : Observable<KidsnoteMember>
 }

@@ -11,10 +11,10 @@ class RandomMemberViewModel (
 ) : ViewModel() {
 
     val member = MutableLiveData<KidsnoteMember>().apply {
-        value = usecase.execute(repo).member
+        usecase.execute(repo).member.subscribe { m -> this.value = m }
     }
 
     fun getNext() {
-        member.value = usecase.execute(repo).member
+        usecase.execute(repo).member.subscribe { m -> member.value = m }
     }
 }
