@@ -85,8 +85,8 @@
 
         <Button
             android:id="@+id/dummy"
-            android:layout_width="100dip"
-            android:layout_height="100dip"
+            android:layout_width="20dip"
+            android:layout_height="20dip"
             android:visibility="invisible"
             app:layout_constraintTop_toBottomOf="@id/btnAdd"
             app:layout_constraintLeft_toLeftOf="parent"

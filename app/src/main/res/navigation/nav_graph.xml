@@ -21,12 +21,20 @@
         android:id="@+id/search_fragment"
         android:name="com.example.sampleapplication.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_fragment_to_add_fragment"
+            app:destination="@id/add_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/add_fragment"
         android:name="com.example.sampleapplication.add.AddMemberFragment"
         android:label="fragment_add"
-        tools:layout="@layout/fragment_add" />
+        tools:layout="@layout/fragment_add">
+        <argument
+            android:name="keyword"
+            app:argType="string"/>
+    </fragment>
     <action
         android:id="@+id/action_global_random_fragment"
         app:destination="@id/random_fragment" />

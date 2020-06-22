@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.classnote.domain.add.AddMemberRepo
 import com.classnote.domain.add.AddMemberUseCase
 import com.classnote.domain.model.KidsnoteMember
@@ -31,6 +32,9 @@ class AddMemberFragment : Fragment() {
         mBinding.lifecycleOwner = this
         mBinding.mMemberViewModel =
             SampleViewModelFactory().create(AddMemberViewModel::class.java).apply {
+                // 이전 Fragment로 부터 전달받은 파라미터를 넣는다.
+                name = arguments?.getString("keyword") ?: ""
+
                 event.observe(viewLifecycleOwner, Observer {
                     AlertDialog.Builder(activity as Context)
                         .setMessage(it)

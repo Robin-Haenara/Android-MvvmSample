@@ -16,7 +16,9 @@ class SearchViewModel(val repo : SearchRepo, val usecase : SearchUseCase) : View
                     override val keyword = value?: ""
                     override val repo = this@SearchViewModel.repo
                 }
-            ).filteredList
+            ).filteredList.also{
+                isEmtpty.value = it.isEmpty()
+            }
         }
 
         override fun postValue(value: String?) {
@@ -26,10 +28,20 @@ class SearchViewModel(val repo : SearchRepo, val usecase : SearchUseCase) : View
                     override val keyword = value?: ""
                     override val repo = this@SearchViewModel.repo
                 }
-            ).filteredList
+            ).filteredList.also{
+                isEmtpty.value = it.isEmpty()
+            }
         }
     }
 
     val memberList = MutableLiveData(repo.list)
+
+    var isEmtpty = MutableLiveData(repo.list.isEmpty())
+
+    val event = MutableLiveData<String>()
+
+    fun moveToAdd() {
+        event.value = keywordData.value?.trim()
+    }
 
 }
