@@ -37,10 +37,10 @@ class SearchViewModel(
         }
     }
 
-    val eventNavi = MutableLiveData<NavDirections>()
+    val naviEvent = MutableLiveData<NavDirections>()
 
     fun moveToAdd() {
-        eventNavi.value =
+        naviEvent.value =
             NavigationMapper.map(
                 usecaseNavi.execute(object : SearchToAddUseCaseInput {
                     override val keyword = keywordData.value

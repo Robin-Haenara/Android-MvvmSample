@@ -10,7 +10,7 @@ import com.classnote.domain.add.AddMemberUseCaseInput
 class AddMemberViewModel(val usecase: AddMemberUseCase, val repo: AddMemberRepo) : ViewModel() {
     var name = ""
     var part = ""
-    val event = MutableLiveData<String>()
+    val dialogEvent = MutableLiveData<String>()
 
     fun addMember() = addMember(name, part)
 
@@ -21,9 +21,9 @@ class AddMemberViewModel(val usecase: AddMemberUseCase, val repo: AddMemberRepo)
                 override val part = part
                 override val repo = this@AddMemberViewModel.repo
             })
-            event.value = "$name 등록에 성공하였습니다."
+            dialogEvent.value = "$name 등록에 성공하였습니다."
         } catch (e: AddMemberException) {
-            event.value = e.message
+            dialogEvent.value = e.message
         }
     }
 }

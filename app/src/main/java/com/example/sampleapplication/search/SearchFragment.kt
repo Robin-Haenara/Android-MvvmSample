@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.classnote.domain.search.SearchToAddUseCase
 import com.classnote.domain.search.SearchUseCase
@@ -28,7 +27,7 @@ class SearchFragment : Fragment() {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
         mBinding.lifecycleOwner = this
         mBinding.mViewModel = SearchViewModelFactory().create(SearchViewModel::class.java).apply {
-            eventNavi.observe(viewLifecycleOwner, Observer { destination ->
+            naviEvent.observe(viewLifecycleOwner, Observer { destination ->
                 findNavController().navigate(destination)
             })
         }
