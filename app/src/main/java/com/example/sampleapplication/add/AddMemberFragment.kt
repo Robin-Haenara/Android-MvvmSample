@@ -18,6 +18,7 @@ import com.classnote.domain.add.AddMemberUseCase
 import com.classnote.domain.model.KidsnoteMember
 import com.example.sampleapplication.R
 import com.example.sampleapplication.databinding.FragmentAddBindingImpl
+import com.example.sampleapplication.db.KidsnoteMemberDbImpl
 
 
 class AddMemberFragment : Fragment() {
@@ -55,9 +56,7 @@ class AddMemberFragment : Fragment() {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return AddMemberViewModel(
                 AddMemberUseCase(),
-                object : AddMemberRepo {
-                    override fun addMember(member: KidsnoteMember) {}
-                }
+                AddMemberRepoImpl(KidsnoteMemberDbImpl)
             ) as T
         }
     }

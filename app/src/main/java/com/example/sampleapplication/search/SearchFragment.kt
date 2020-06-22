@@ -37,7 +37,7 @@ class SearchFragment : Fragment() {
 
     inner class SearchViewModelFactory : ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return SearchViewModel(SearchRepoImpl(KidsnoteMemberDbImpl()), SearchUseCase()) as T
+            return SearchViewModel(SearchRepoImpl(KidsnoteMemberDbImpl), SearchUseCase(), SearchToAddUseCase()) as T
         }
     }
 }

@@ -36,7 +36,7 @@ class RandomFragment : Fragment() {
             return RandomMemberViewModel(
                 usecase = RandomMemberUseCase(),
                 repo = RandomMemberRepoImpl(
-                    db = KidsnoteMemberDbImpl()
+                    db = KidsnoteMemberDbImpl
                 )
             ) as T
         }
